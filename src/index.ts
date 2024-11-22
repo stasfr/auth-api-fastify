@@ -1,15 +1,25 @@
-import express, { Express, Request, Response } from "express";
+import Fastify from "fastify";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const app: Express = express();
-const port = process.env.PORT || 3000;
+const PORT: number = (process.env.PORT || 3000) as number;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express + TypeScript Server");
+const server = Fastify({
+  logger: true,
 });
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
+server.get("/", async (request, reply) => {
+  return { hello: "world" };
 });
+
+async function start() {
+  try {
+    await server.listen({ port: PORT });
+  } catch (error) {
+    server.log.error(error);
+    process.exit(1);
+  }
+}
+
+start();
