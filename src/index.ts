@@ -1,6 +1,8 @@
 import Fastify from "fastify";
 import dotenv from "dotenv";
 
+import modules from "./modules/index";
+
 dotenv.config();
 
 const PORT: number = (process.env.PORT || 3000) as number;
@@ -9,9 +11,7 @@ const server = Fastify({
   logger: true,
 });
 
-server.get("/", async (request, reply) => {
-  return { hello: "world" };
-});
+server.register(modules.basic, { prefix: "/" });
 
 async function start() {
   try {
