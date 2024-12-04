@@ -1,7 +1,7 @@
-import type { FastifyRequest, FastifyReply } from 'fastify';
-import type { UserCreate } from '../../types/Auth';
+import type { FastifyRequest, FastifyReply } from "fastify";
+import type { UserCreate } from "../../types/Auth";
 
-import AuthService from './auth.service';
+import AuthService from "./auth.service";
 
 class AuthController {
   async register(
@@ -22,27 +22,27 @@ class AuthController {
 
   async login(request: FastifyRequest, reply: FastifyReply) {
     try {
-      reply.send({ hello: 'world' });
+      reply.send({ hello: "world" });
     } catch (error: unknown) {}
   }
   async logout(request: FastifyRequest, reply: FastifyReply) {
     try {
-      reply.send({ hello: 'world' });
+      reply.send({ hello: "world" });
     } catch (error: unknown) {}
   }
   async activate(request: FastifyRequest, reply: FastifyReply) {
     try {
-      reply.send({ hello: 'world' });
+      reply.send({ hello: "world" });
     } catch (error: unknown) {}
   }
   async refresh(request: FastifyRequest, reply: FastifyReply) {
     try {
-      reply.send({ hello: 'world' });
+      reply.send({ hello: "world" });
     } catch (error: unknown) {}
   }
   async getUsers(request: FastifyRequest, reply: FastifyReply) {
     try {
-      reply.send({ hello: 'world' });
+      reply.send({ hello: "world" });
     } catch (error: unknown) {}
   }
 }
