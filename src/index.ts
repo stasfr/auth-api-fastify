@@ -12,6 +12,7 @@ const server = Fastify({
 });
 
 server.register(modules.basic, { prefix: "/" });
+server.register(modules.auth, { prefix: "/api/auth" });
 
 async function start() {
   try {
